@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #E87040;
+  --color-brand-dark: #C94B2A;
+  --color-brand-light: #F5A67D;
+  --color-brand-glow: rgba(232, 112, 64, 0.2);
+
+  --color-surface-base: #0F0F10;
+  --color-surface-elevated: #1A1A1C;
+  --color-surface-overlay: #242426;
+  --color-surface-border: #2E2E30;
+  --color-surface-hover: #2A2A2C;
+
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #9B9B9B;
+  --color-text-muted: #636366;
+  --color-text-inverse: #0F0F10;
+
+  --color-accent-purple: #8B5CF6;
+  --color-accent-teal: #14B8A6;
+  --color-accent-blue: #3B82F6;
+
+  --color-status-todo: #636366;
+  --color-status-inprogress: #3B82F6;
+  --color-status-inreview: #8B5CF6;
+  --color-status-testing: #F59E0B;
+  --color-status-done: #22C55E;
+  --color-status-blocked: #EF4444;
+
+  --color-priority-critical: #EF4444;
+  --color-priority-high: #F97316;
+  --color-priority-medium: #F59E0B;
+  --color-priority-low: #22C55E;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Tiptap editor styles */
+.ProseMirror {
+  outline: none;
+  min-height: 200px;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--color-text-muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.ProseMirror h1 { font-size: 1.875rem; font-weight: 700; margin: 1rem 0 0.5rem; }
+.ProseMirror h2 { font-size: 1.5rem; font-weight: 600; margin: 0.875rem 0 0.5rem; }
+.ProseMirror h3 { font-size: 1.25rem; font-weight: 600; margin: 0.75rem 0 0.5rem; }
+.ProseMirror ul, .ProseMirror ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+.ProseMirror li { margin: 0.25rem 0; }
+.ProseMirror code { background: var(--color-surface-overlay); padding: 0.1em 0.3em; border-radius: 3px; font-family: var(--font-family-mono); font-size: 0.875em; }
+.ProseMirror pre { background: var(--color-surface-overlay); border: 1px solid var(--color-surface-border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; overflow-x: auto; }
+.ProseMirror pre code { background: transparent; padding: 0; }
+.ProseMirror blockquote { border-left: 3px solid var(--color-brand); padding-left: 1rem; margin: 0.75rem 0; color: var(--color-text-secondary); }
+.ProseMirror strong { font-weight: 600; color: var(--color-text-primary); }
+.ProseMirror em { font-style: italic; }
+.ProseMirror hr { border: none; border-top: 1px solid var(--color-surface-border); margin: 1rem 0; }
+.ProseMirror a { color: var(--color-accent-blue); text-decoration: underline; }
