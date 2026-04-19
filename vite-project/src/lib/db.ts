@@ -1,4 +1,7 @@
-import initSqlJs, { type Database, type SqlJsStatic } from 'sql.js'
+import SqlJsModule, { type Database, type SqlJsStatic } from 'sql.js'
+// sql.js is CJS — handle both default and namespace export shapes
+const initSqlJs: (config?: { locateFile?: (file: string) => string }) => Promise<SqlJsStatic> =
+  (SqlJsModule as unknown as { default: typeof SqlJsModule }).default ?? SqlJsModule
 
 const DB_KEY = 'flowai_db'
 
